@@ -18,9 +18,8 @@ function reworkHeader(){
 	let thing2 = document.getElementsByClassName('mg_slideshow_overlay')[0]
 	let navImage = document.querySelector('.flex-control-nav')
 
-
+	// "Delete" the cubes around the main part
 	try{
-		// "Delete" the cubes around the main part
 		leftAd.style.display = 'none';
 		rightAd.style.display = 'none';
 	}
@@ -28,8 +27,8 @@ function reworkHeader(){
 		console.log('ERROR : Impossible to delete the advertisement')
 	}
 
+	//Resize the container of the images
 	try{
-		//Resize the container of the images
 		thing.style.width = WIDTHSIZE
 		thing2.style.width = WIDTHSIZE
 	}
@@ -37,9 +36,9 @@ function reworkHeader(){
 		console.log('ERROR : Impossible to resize the images containers')
 	}
 
+	// Resize the images wich change every 8/10 secondes
 	try{
-		// Resize the images wich change every 8/10 secondes
-		for (var i = 0; i < images.length -1 ; i++) {
+		for (var i = 0; i < images.length ; i++) {
 			images[i].style.width = "100%";
 			images[i].style.height = "auto";
 			images[i].style.position = 'static';
@@ -49,9 +48,9 @@ function reworkHeader(){
 		console.log('ERROR : Impossible to resize the images')
 	}
 
-	try{
 	// Set the nav images upper
-	navImage.style.top = '-34px'
+	try{
+		navImage.style.top = '-34px'
 	}
 	catch{
 		console.log('ERROR : Impossible to move the images nav upper, retrying...')
@@ -77,7 +76,7 @@ function reworkMain(path){
 	const j_idt159 = document.getElementById('j_idt159')
 	j_idt159.style.width = "100%"
 
-	// Resize the main part in all the pages
+	// Resize the main part in all the pages (it's like the <main> balise)
 	var main = document.getElementById('mg_portal_content');
 	var divsForms = main.querySelectorAll('div, form');
 
@@ -107,13 +106,10 @@ function reworkMain(path){
 	}
 
 	wordToSearch = path.split('/').pop().split('-')
-	console.log(wordToSearch)
 
 	// Search all the id based on the name of the path to zoom the good things
-
 	if (!(path.includes('pcie')) && !(path.includes('resume')) ){
 		for (let i = 0; i < wordToSearch.length; i++){
-			console.log(wordToSearch[i])
 
 			// Shlag technics
 			if(wordToSearch[i] == "events"){
@@ -132,6 +128,7 @@ function reworkMain(path){
 
 		}
 	}
+
 
 	// -------------------- EXCEPTIONS --------------------
 	if (path.includes('student-documents')){
