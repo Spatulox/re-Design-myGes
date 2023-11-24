@@ -1,0 +1,156 @@
+body{
+	margin: 0px;
+	width: 300px;
+}
+
+main ul li{
+	list-style: none;
+	margin-left: 20px;
+}
+
+main ul{
+	padding-left: inherit;
+}
+
+main ul li p{
+	width: 200px;
+}
+
+
+/*Classes*/
+
+.blue{
+	background-color: #217bb1 ;
+}
+
+.block{
+	display: block;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.bord{
+	border-radius: 10px
+}
+
+.flex{
+	display: flex;
+}
+
+.flexCenter{
+	justify-content: center;
+}
+
+.flexWrap{
+	flex-wrap: wrap;
+}
+
+.noMarginTop{
+	margin-top: 0px;
+}
+
+.marginTop5{
+	margin-top: 5px;
+}
+
+.noMargin{
+	margin: 0px;
+}
+
+.marginAuto{
+	margin: auto;
+}
+
+.padding5{
+	padding: 5px;
+}
+
+.textCenter{
+	text-align: center;
+}
+
+.underline{
+	text-decoration: underline;
+}
+
+.width50{
+	width: 75%;
+}
+
+.width100{
+	width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+/*Switches CSS*/
+
+/* Le conteneur du bouton de commutation */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Masquer le checkbox par défaut */
+.switch input {
+  display: none;
+}
+
+/* Le slider (la poignée) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* Styles supplémentaires pour le slider lorsqu'il est activé */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50px
+
+}
+
+/* Styles supplémentaires pour le slider lorsqu'il est activé */
+input:checked + .slider {
+  background-color: #217bb1;
+  border-radius: 50pxs
+}
+
+/* Styles supplémentaires pour le slider lorsqu'il est activé */
+input:focus + .slider {
+  box-shadow: 0 0 1px #217bb1;
+  border-radius: 50px
+}
+
+/* Styles supplémentaires pour le slider lorsqu'il est activé */
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  border-radius: 50px
+}
