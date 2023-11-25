@@ -25,13 +25,10 @@
 						Enable redesign
 					</p>
 					<div class="flex flexCenter marginAuto">
-						<label class="switch">
-							<input id="normalDesign" type="checkbox" class="bord">
-							<span class="slider bord"></span>
-						</label>
-
-						<!--<input type="checkbox" id="mySwitch">
-						<label for="mySwitch">Toggle</label>-->
+						<div id="normalDesign" class="toggle">
+							<input type="checkbox">
+							<div class="toggle-button"></div>
+						</div>
 					</div>
 				</li>
 
@@ -40,10 +37,10 @@
 						Enable heavy redesign
 					</p>
 					<div class="flex flexCenter marginAuto">
-						<label class="switch">
-							<input id="heavyDesign" type="checkbox" class="bord" >
-							<span class="slider bord"></span>
-						</label>
+						<div id="heavyDesign" class="toggle">
+							<input type="checkbox">
+							<div class="toggle-button"></div>
+						</div>
 					</div>
 				</li>
 
@@ -51,21 +48,21 @@
 					<p>
 						Enable event themes
 					</p>
-					<div class="flex flexCenter marginAuto">
-						<label class="switch">
-							<input id="eventDesign" type="checkbox" class="bord">
-							<span class="slider bord"></span>
-						</label>
+					<div class="flex flexCenter marginAuto ">
+						<div id="eventDesign" class="toggle">
+							<input type="checkbox">
+							<div class="toggle-button"></div>
+						</div>
 					</div>
 				</li>
 
 				<li style="display: inline-flex;">
-					<p style="width: 175px;">
+					<p style="width: 182px;">
 						Clear cache
 					</p>
 					<div class="flex flexCenter marginAuto">
 						<label class="switch">
-							<input id="clearCache" type="button" value="Clear cache" class="bord">
+							<input id="clearCache" type="button" value="Clear cache" class="bord toggle active" style="width: auto;">
 							<span class="slider bord"></span>
 						</label>
 					</div>
