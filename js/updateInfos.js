@@ -78,6 +78,7 @@ eventDesign.addEventListener('click', function() {
   }
 });
 
+
 clearCache.addEventListener('click', function() {
 	localStorage.clear()
 	localStorage.setItem('enabled', "0")
