@@ -83,5 +83,6 @@ clearCache.addEventListener('click', function() {
 	localStorage.setItem('enabled', "0")
 	localStorage.setItem('heavyDesign', "0")
 	localStorage.setItem('eventDesign', "0")
+	console.log('Cache reinitialized')
 	checkChecked()
 });
