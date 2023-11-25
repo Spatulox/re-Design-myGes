@@ -26,9 +26,12 @@
 					</p>
 					<div class="flex flexCenter marginAuto">
 						<label class="switch">
-							<input type="checkbox" class="bord">
+							<input id="normalDesign" type="checkbox" class="bord">
 							<span class="slider bord"></span>
 						</label>
+
+						<!--<input type="checkbox" id="mySwitch">
+						<label for="mySwitch">Toggle</label>-->
 					</div>
 				</li>
 
@@ -38,7 +41,7 @@
 					</p>
 					<div class="flex flexCenter marginAuto">
 						<label class="switch">
-							<input type="checkbox" class="bord">
+							<input id="heavyDesign" type="checkbox" class="bord" >
 							<span class="slider bord"></span>
 						</label>
 					</div>
@@ -50,7 +53,19 @@
 					</p>
 					<div class="flex flexCenter marginAuto">
 						<label class="switch">
-							<input type="checkbox" class="bord">
+							<input id="eventDesign" type="checkbox" class="bord">
+							<span class="slider bord"></span>
+						</label>
+					</div>
+				</li>
+
+				<li style="display: inline-flex;">
+					<p style="width: 175px;">
+						Clear cache
+					</p>
+					<div class="flex flexCenter marginAuto">
+						<label class="switch">
+							<input id="clearCache" type="button" value="Clear cache" class="bord">
 							<span class="slider bord"></span>
 						</label>
 					</div>
@@ -61,6 +76,10 @@
 		</div>
 
 	</main>
+
+	<script type="text/javascript" src="./js/updateInfos.js" defer>
+
+	</script>
 
 </body>
 </html>
