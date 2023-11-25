@@ -1,5 +1,5 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "re:DeSign myGes",
   "version": "1.0",
   "description": "Redesign the myges website",
@@ -17,7 +17,7 @@
     "tabs",
     "storage"
   ],
-  "action": {
+  "browser_action": {
     "default_icon": "./images/letter_d_PNG79.webp",
     "default_title": "re:DeSign myGes",
     "default_popup": "popup.html"
@@ -26,7 +26,5 @@
     "page": "config.html",
     "open_in_tab": true
   },
-  "content_security_policy": {
-	  "extension_pages": "script-src 'self'"
-	}
+  "content_security_policy": "script-src 'self'"
 }
