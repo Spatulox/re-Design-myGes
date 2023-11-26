@@ -13,7 +13,7 @@ async function getLocalValues() {
 		tmp.push(result.enabled);
 	} catch (error) {
 		tmp.push('Error')
-		console.error('Erreur lors de la récupération des données : ' + error);
+		console.log('Erreur lors de la récupération des données : ' + error);
 		return null;
 	}
 
@@ -22,7 +22,7 @@ async function getLocalValues() {
 		tmp.push(result.heavyDesign);
 	} catch (error) {
 		tmp.push('Error')
-		console.error('Erreur lors de la récupération des données : ' + error);
+		console.log('Erreur lors de la récupération des données : ' + error);
 		return null;
 	}
 
@@ -31,7 +31,7 @@ async function getLocalValues() {
 		tmp.push(result.eventDesign);
 	} catch (error) {
 		tmp.push('Error')
-		console.error('Erreur lors de la récupération des données : ' + error);
+		console.log('Erreur lors de la récupération des données : ' + error);
 		return null;
 	}
 
@@ -46,7 +46,7 @@ async function checkChecked(){
 	let enabled = tmp[0]
 	let heavy = tmp[1]
 	let event = tmp[2]
-	console.log(tmp)
+	console.log('enabled, heavy, event : ', tmp)
 
 	normalDesign.children[0].checked = false
 	heavyDesign.children[0].checked = false
@@ -100,19 +100,15 @@ async function main(){
 // Listen for normalDesign (enabled) checkbox
 normalDesign.addEventListener('click', async function() {
   normalDesign.classList.toggle('active')
+//   console.log(this.children[0])
 
-  console.log(this.children[0])
   if (this.children[0].checked) {
-    // Action à effectuer lorsque la case à cocher est cochée
-    console.log('La case à cocher est cochée, décochage');
-    // localStorage.setItem('enabled', "0")
+    // console.log('La case à cocher est cochée, décochage');
 	await browser.storage.local.set({ "enabled": "0"})
     this.children[0].checked = false
     await checkChecked()
   } else {
-    // Action à effectuer lorsque la case à cocher est décochée
-    console.log('La case à cocher est décochée, cochage');
-    // localStorage.setItem('enabled', "1")
+    // console.log('La case à cocher est décochée, cochage');
 	await browser.storage.local.set({ "enabled": "1"})
     this.children[0].checked = true
     await checkChecked()
@@ -122,19 +118,15 @@ normalDesign.addEventListener('click', async function() {
 // Listen for heavyDesign checkbox
 heavyDesign.addEventListener('click', async function() {
   heavyDesign.classList.toggle('active')
-  console.log(this.children[0])
+//   console.log(this.children[0])
 
   if (this.children[0].checked) {
-    // Action à effectuer lorsque la case à cocher est cochée
-    console.log('La case à cocher est cochée, décochage');
-	// localStorage.setItem('heavyDesign', "0")
-	await browser.storage.local.set({ "heavyDesigns": "0"})
+    // console.log('La case à cocher est cochée, décochage');
+	await browser.storage.local.set({ "heavyDesign": "0"})
 	this.children[0].checked = true
 	await checkChecked()
   } else {
-    // Action à effectuer lorsque la case à cocher est décochée
-    console.log('La case à cocher est décochée, cochage');
-	// localStorage.setItem('heavyDesign', "1")
+    // console.log('La case à cocher est décochée, cochage');
 	await browser.storage.local.set({ "heavyDesign": "1"})
 	this.children[0].checked = false
 	await checkChecked()
@@ -144,19 +136,15 @@ heavyDesign.addEventListener('click', async function() {
 // Listen for eventDesign checkbox
 eventDesign.addEventListener('click', async function() {
 	eventDesign.classList.toggle('active')
-	console.log(this.children[0])
+	// console.log(this.children[0])
 
   if (this.children[0].checked) {
-    // Action à effectuer lorsque la case à cocher est cochée
-    console.log('La case à cocher est cochée, décochage');
-	// localStorage.setItem('eventDesign', "0")
+    // console.log('La case à cocher est cochée, décochage');
 	await browser.storage.local.set({ "eventDesign": "0"})
 	this.children[0].checked = true
 	await checkChecked()
   } else {
-    // Action à effectuer lorsque la case à cocher est décochée
-    console.log('La case à cocher est décochée, cochage');
-	// localStorage.setItem('eventDesign', "1")
+    // console.log('La case à cocher est décochée, cochage');
 	await browser.storage.local.set({ "eventDesign": "1"})
 	this.children[0].checked = false
 	await checkChecked()
