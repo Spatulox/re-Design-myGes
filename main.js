@@ -22,6 +22,35 @@ function autoId(id){
 
 //----------------------------------------------------------//
 
+function createLinkBalise(nameCssFile){
+	var newLink = document.createElement('link');
+	newLink.rel = 'stylesheet';
+	newLink.type = 'text/css';
+
+	if (nameCssFile.includes('.css')){
+		nameCssFile = nameCssFile.split('.css')[0]
+	}
+	newLink.href = browser.runtime.getURL("./CSS/"+nameCssFile+".css"); // Remplacez par l'URL de votre fichier CSS
+
+	// Insérer la balise link en dessous de toutes les balises link existantes
+	var existingLinks = document.getElementsByTagName('link');
+	if (existingLinks.length > 0) {
+	existingLinks[existingLinks.length - 1].insertAdjacentElement('afterend', newLink);
+	} else {
+	document.head.appendChild(newLink);
+	}
+	console.log(`Linked ${nameCssFile}.css`)
+
+	
+	// var styleSheet = document.styleSheets[document.styleSheets.length - 1];
+	// console.log(styleSheet)
+
+	// Ajout de la règle CSS
+	// styleSheet.insertRule("body { background-color: lightblue; }", 0);
+}
+
+//----------------------------------------------------------//
+
 async function getLocalValues() {
 	let tmp = []
 
@@ -278,6 +307,7 @@ async function main(){
 	else if(enabled == 1 && heavy == 1){
 		console.log('Heavy design')
 		// Link une page CSS
+		createLinkBalise('heavyDesign.css')
 	}
 	else{
 		console.log('pas de redesign')
@@ -298,25 +328,19 @@ setTimeout(function() {
 
 	// Search if datas exist then set it if don't exist
 	browser.storage.local.get().then((result) => {
-		if (result.enabled) {
-			console.log('La donnée "enabled" existe : ' + result.enabled);
-		} else {
-			console.log('La donnée "enabled" n\'existe pas');
+		if (!result.enabled) {
 			browser.storage.local.set({ "enabled": "0"}).then(setItem, onError)
+			console.log('enabled data set')
 		}
 
-		if (result.heavyDesign) {
-			console.log('La donnée "heavyDesign" existe : ' + result.heavyDesign);
-		} else {
-			console.log('La donnée "heavyDesign" n\'existe pas');
+		if (!result.heavyDesign) {
 			browser.storage.local.set({ "heavyDesign": "0"}).then(setItem, onError)
+			console.log('heavyDesign data set')
 		}
 
-		if (result.eventDesign) {
-			console.log('La donnée "eventDesign" existe : ' + result.eventDesign);
-		} else {
-			console.log('La donnée "eventDesign" n\'existe pas');
+		if (!result.eventDesign) {
 			browser.storage.local.set({ "eventDesign": "0"}).then(setItem, onError)
+			console.log('eventDesign data set')
 		}
 	})
 	.catch((error) => {
