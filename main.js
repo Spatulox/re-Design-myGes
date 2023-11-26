@@ -22,6 +22,41 @@ function autoId(id){
 
 //----------------------------------------------------------//
 
+async function getLocalValues() {
+	let tmp = []
+
+	try {
+		let result = await browser.storage.local.get("enabled");
+		tmp.push(result.enabled);
+	} catch (error) {
+		tmp.push('Error')
+		console.error('Erreur lors de la récupération des données : ' + error);
+		return null;
+	}
+
+	try {
+		let result = await browser.storage.local.get("heavyDesign");
+		tmp.push(result.heavyDesign);
+	} catch (error) {
+		tmp.push('Error')
+		console.error('Erreur lors de la récupération des données : ' + error);
+		return null;
+	}
+
+	try {
+		let result = await browser.storage.local.get("eventDesign");
+		tmp.push(result.eventDesign);
+	} catch (error) {
+		tmp.push('Error')
+		console.error('Erreur lors de la récupération des données : ' + error);
+		return null;
+	}
+
+	return tmp
+}
+
+//----------------------------------------------------------//
+
 function reworkHeader(){
 
 	// Cube advertisement
@@ -222,22 +257,36 @@ function reworkMain(path){
 
 //----------------------------------------------------------//
 
-function main(){
+async function main(){
 	const path = window.location.pathname;
 	console.log(path);
+
+	let tmp = await getLocalValues()
+	let enabled = tmp[0]
+	let heavy = tmp[1]
+	let event = tmp[2]
 	// console.log('localStorage', localStorage)
 
-	if (localStorage.getItem('enabled') == 1){
-		console.log('Normal reworked')
+	if (enabled == 1 && heavy == 0){
+		console.log('Normal design')
 		// Header / Images
 		reworkHeader();
 
 		// Rework the main part
 		reworkMain(path)
 	}
-	// else{
-	// 	alert('Pas de redesign')
-	// }
+	else if(enabled == 1 && heavy == 1){
+		console.log('Heavy design')
+		// Link une page CSS
+	}
+	else{
+		console.log('pas de redesign')
+	}
+
+	if (event == 1){
+		console.log('Event design')
+		// Link une page CSS qui change les couleurs ??
+	}
 }
 
 //----------------------------------------------------------//
