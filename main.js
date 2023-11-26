@@ -1,12 +1,26 @@
 
 const WIDTHSIZE = "60vw"
 
+//----------------------------------------------------------//
+
+function setItem() {
+	console.log("Datas set...");
+}
+
+function onError(error) {
+    console.log(error);
+}
+
+//----------------------------------------------------------//
+
 function autoId(id){
 	const array = document.querySelectorAll('[id*="'+id+'" i]');
 	for (var i = 0; i < array.length ; i++) {
 		array[i].style.width = 'auto'
 	}
 }
+
+//----------------------------------------------------------//
 
 function reworkHeader(){
 
@@ -70,6 +84,7 @@ function reworkHeader(){
 
 }
 
+//----------------------------------------------------------//
 
 function reworkMain(path){
 	// Take the long grey line with "Home > pageYourCurrentlyAre"
@@ -205,29 +220,59 @@ function reworkMain(path){
 	
 }
 
-
-
+//----------------------------------------------------------//
 
 function main(){
 	const path = window.location.pathname;
 	console.log(path);
+	// console.log('localStorage', localStorage)
 
+	if (localStorage.getItem('enabled') == 1){
+		console.log('Normal reworked')
+		// Header / Images
+		reworkHeader();
 
-	// Header / Images
-	reworkHeader();
-
-	// Rework the main part
-	reworkMain(path)
+		// Rework the main part
+		reworkMain(path)
+	}
+	// else{
+	// 	alert('Pas de redesign')
+	// }
 }
 
-
-
-
-
-
-
+//----------------------------------------------------------//
 
 // Wait 0.5 secondes before executing the program
 setTimeout(function() {
+
+	// browser.storage.local.clear()
+
+	// Search if datas exist then set it if don't exist
+	browser.storage.local.get().then((result) => {
+		if (result.enabled) {
+			console.log('La donnée "enabled" existe : ' + result.enabled);
+		} else {
+			console.log('La donnée "enabled" n\'existe pas');
+			browser.storage.local.set({ "enabled": "0"}).then(setItem, onError)
+		}
+
+		if (result.heavyDesign) {
+			console.log('La donnée "heavyDesign" existe : ' + result.heavyDesign);
+		} else {
+			console.log('La donnée "heavyDesign" n\'existe pas');
+			browser.storage.local.set({ "heavyDesign": "0"}).then(setItem, onError)
+		}
+
+		if (result.eventDesign) {
+			console.log('La donnée "eventDesign" existe : ' + result.eventDesign);
+		} else {
+			console.log('La donnée "eventDesign" n\'existe pas');
+			browser.storage.local.set({ "eventDesign": "0"}).then(setItem, onError)
+		}
+	})
+	.catch((error) => {
+		console.error('Erreur lors de la récupération des données : ' + error);
+	});
+
 	main()
-}, 500);
+}, 1000);
