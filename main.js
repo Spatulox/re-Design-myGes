@@ -59,7 +59,7 @@ async function getLocalValues() {
 		tmp.push(result.enabled);
 	} catch (error) {
 		tmp.push('Error')
-		console.error('Erreur lors de la récupération des données : ' + error);
+		console.log('Erreur lors de la récupération des données : ' + error);
 		return null;
 	}
 
@@ -68,7 +68,7 @@ async function getLocalValues() {
 		tmp.push(result.heavyDesign);
 	} catch (error) {
 		tmp.push('Error')
-		console.error('Erreur lors de la récupération des données : ' + error);
+		console.log('Erreur lors de la récupération des données : ' + error);
 		return null;
 	}
 
@@ -77,7 +77,7 @@ async function getLocalValues() {
 		tmp.push(result.eventDesign);
 	} catch (error) {
 		tmp.push('Error')
-		console.error('Erreur lors de la récupération des données : ' + error);
+		console.log('Erreur lors de la récupération des données : ' + error);
 		return null;
 	}
 
@@ -291,9 +291,9 @@ async function main(){
 	console.log(path);
 
 	let tmp = await getLocalValues()
-	let enabled = tmp[0]
-	let heavy = tmp[1]
-	let event = tmp[2]
+	let enabled = (tmp[0] != 'Error' ? tmp[0] : 0)
+	let heavy = (tmp[1] != 'Error' ? tmp[1] : 0)
+	let event = (tmp[2] != 'Error' ? tmp[2] : 0)
 	// console.log('localStorage', localStorage)
 
 	if (enabled == 1 && heavy == 0){
@@ -310,7 +310,7 @@ async function main(){
 		createLinkBalise('heavyDesign.css')
 	}
 	else{
-		console.log('pas de redesign')
+		console.log('Pas de redesign')
 	}
 
 	if (event == 1){
@@ -348,4 +348,4 @@ setTimeout(function() {
 	});
 
 	main()
-}, 1000);
+}, 500);
