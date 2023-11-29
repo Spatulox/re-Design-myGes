@@ -27,8 +27,9 @@ async function injectCSS(){
     enabled = 0
     heavyDesign = 0
     eventDesign = 0
-    style.textContent = ""
   }
+
+  style.textContent = ""
 
   // Enable some customs design
 
@@ -39,6 +40,15 @@ async function injectCSS(){
   }
 
   console.log('Injecting CSS')
+
+  // Different type of redesign :
+  // normal (enabled)
+  // normal (enabled) + event
+  // heavy
+  // heavy + event
+
+  // Impossible :
+  // normal + heavy
 
   if(enabled == 1 && heavyDesign == 0){
     console.log('Normal design')
