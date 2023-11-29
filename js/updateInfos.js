@@ -94,7 +94,8 @@ function sendMessageToUpdateCSS(){
 		    messagePopup('CSS Updated !')
 		  });
 		} else {
-		  console.log('L\'onglet myges n\'existe pas.');
+			messagePopup('MyGes tab doesn\'t exist...')
+		  console.log('MyGes tab doesn\'t exist...');
 		}
 	});
 }
