@@ -2,15 +2,27 @@ const normalDesign = document.getElementById('normalDesign')
 const heavyDesign = document.getElementById('heavyDesign')
 const eventDesign = document.getElementById('eventDesign')
 const clearCache = document.getElementById('clearCache')
+const popupMsg = document.getElementById('popupMsg')
 
 // ------------------------------------------------------------ //
 
 async function checkChecked(){
 
-	let tmp = await getLocalValues()
-	let enabled = tmp[0]
-	let heavy = tmp[1]
-	let event = tmp[2]
+	let enabled
+  let heavy
+  let event
+  let tmp = await getLocalValues()
+  if (tmp != null){
+  enabled = (tmp[0] != 'Error' ? tmp[0] : 0)
+  heavy = (tmp[1] != 'Error' ? tmp[1] : 0)
+  event = (tmp[2] != 'Error' ? tmp[2] : 0)
+  }
+  else{
+    enabled = 0
+    heavy = 0
+    event = 0
+  }
+
 	console.log('enabled, heavy, event : ', tmp)
 
 	normalDesign.children[0].checked = false
@@ -52,13 +64,21 @@ async function checkChecked(){
 		console.log('Error when activating eventDesign')
 	}
 
-	sendMessageToUpdateCSS()
-
 }
 
 // ------------------------------------------------------------ //
 
-async function updatePopup(){
+async function messagePopup(msg){
+	popupMsg.innerHTML = msg
+	popupMsg.classList.add('display')
+	setTimeout(function() {
+  popupMsg.classList.remove('display')
+}, 3000);
+}
+
+// ------------------------------------------------------------ //
+
+async function updatePopupHtml(){
 	await checkChecked()
 }
 
@@ -70,7 +90,8 @@ function sendMessageToUpdateCSS(){
 		var mygesTab = tabs.find(tab => tab.url.includes('myges'));
 		if (mygesTab) {
 		  browser.tabs.sendMessage(mygesTab.id, {action: 'updateCSS'}, function(response) {
-		    console.log('Mise à jour du CSS de myges effectuée');
+		    console.log('CSS Updated !');
+		    messagePopup('CSS Updated !')
 		  });
 		} else {
 		  console.log('L\'onglet myges n\'existe pas.');
@@ -96,13 +117,15 @@ normalDesign.addEventListener('click', async function() {
     // console.log('La case à cocher est cochée, décochage');
 	await browser.storage.local.set({ "enabled": "0"})
     this.children[0].checked = false
-    await checkChecked()
   } else {
     // console.log('La case à cocher est décochée, cochage');
 	await browser.storage.local.set({ "enabled": "1"})
     this.children[0].checked = true
-    await checkChecked()
   }
+
+  await checkChecked()
+
+  sendMessageToUpdateCSS()
 });
 
 // Listen for heavyDesign checkbox
@@ -114,12 +137,25 @@ heavyDesign.addEventListener('click', async function() {
     // console.log('La case à cocher est cochée, décochage');
 	await browser.storage.local.set({ "heavyDesign": "0"})
 	this.children[0].checked = true
-	await checkChecked()
   } else {
     // console.log('La case à cocher est décochée, cochage');
 	await browser.storage.local.set({ "heavyDesign": "1"})
 	this.children[0].checked = false
-	await checkChecked()
+  }
+
+  await checkChecked()
+
+  let enabled
+  let tmp = await getLocalValues()
+  if (tmp != null){
+  enabled = (tmp[0] != 'Error' ? tmp[0] : 0)
+  }
+  else{
+    enabled = 0
+  }
+
+  if (enabled == 1){
+  	sendMessageToUpdateCSS()
   }
 });
 
@@ -132,12 +168,25 @@ eventDesign.addEventListener('click', async function() {
     // console.log('La case à cocher est cochée, décochage');
 	await browser.storage.local.set({ "eventDesign": "0"})
 	this.children[0].checked = true
-	await checkChecked()
   } else {
     // console.log('La case à cocher est décochée, cochage');
 	await browser.storage.local.set({ "eventDesign": "1"})
 	this.children[0].checked = false
-	await checkChecked()
+  }
+
+  await checkChecked()
+
+  let enabled
+  let tmp = await getLocalValues()
+  if (tmp != null){
+  enabled = (tmp[0] != 'Error' ? tmp[0] : 0)
+  }
+  else{
+    enabled = 0
+  }
+
+  if (enabled == 1){
+  	sendMessageToUpdateCSS()
   }
 });
 
@@ -150,7 +199,8 @@ clearCache.addEventListener('click', async function() {
 	await browser.storage.local.set({ "eventDesign": "0"})
 	console.log('Cache reinitialized')
 	await checkChecked()
+	messagePopup('Cache reinitialized')
 });
 
 // --------------------------- // main part
-updatePopup()
+updatePopupHtml()

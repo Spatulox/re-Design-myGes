@@ -1,5 +1,4 @@
 async function injectCSS(){
-  console.log('InjectCSS')
   let style = null
   let count = 0
 
@@ -15,17 +14,31 @@ async function injectCSS(){
   }
 
   // Retrieve value from storage.local
+  let enabled
+  let heavyDesign
+  let eventDesign
   let tmp = await getLocalValues()
-  let enabled = (tmp[0] != 'Error' ? tmp[0] : 0)
-  let heavyDesign = (tmp[1] != 'Error' ? tmp[1] : 0)
-  let eventDesign = (tmp[2] != 'Error' ? tmp[2] : 0)
+  if (tmp != null){
+  enabled = (tmp[0] != 'Error' ? tmp[0] : 0)
+  heavyDesign = (tmp[1] != 'Error' ? tmp[1] : 0)
+  eventDesign = (tmp[2] != 'Error' ? tmp[2] : 0)
+  }
+  else{
+    enabled = 0
+    heavyDesign = 0
+    eventDesign = 0
+    style.textContent = ""
+  }
 
   // Enable some customs design
 
   if(enabled == 0){
+    style.textContent = ""
     console.log('The extension is not enable, no redesign')
     return
   }
+
+  console.log('Injecting CSS')
 
   if(enabled == 1 && heavyDesign == 0){
     console.log('Normal design')

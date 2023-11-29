@@ -35,6 +35,31 @@ main ul li p{
 	border-radius: 10px
 }
 
+.err{
+	display: none;
+	width: 200px;
+	left: 50px;
+	top: 8px;
+	min-height: 30px;
+	position: absolute;
+/*	display: flex;*/
+	justify-content: center;
+	align-items: center;
+	color: darkred;
+	margin: auto;
+	border-radius: 10px;
+	background-color: #cccccc;
+	background-color: #aaaaaa;
+	transition: 0.5s;
+
+}
+
+.err.display{
+	display: flex;
+	margin: auto;
+	transition: 0.5s;
+}
+
 .flex{
 	display: flex;
 }
@@ -51,8 +76,16 @@ main ul li p{
 	margin-top: 0px;
 }
 
+.noMarginBottom{
+	margin-bottom: 0px;
+}
+
 .marginTop5{
 	margin-top: 5px;
+}
+
+.marginBottom5{
+	margin-bottom: 5px;
 }
 
 .noMargin{
