@@ -23,10 +23,6 @@
     "default_title": "re:DeSign myGes",
     "default_popup": "popup.html"
   },
-  "options_ui": {
-    "page": "config.html",
-    "open_in_tab": true
-  },
   "content_security_policy": {
 	  "extension_pages": "script-src 'self'"
 	}

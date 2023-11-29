@@ -55,17 +55,17 @@ setTimeout(function() {
 	// Search if datas exist then set it if don't exist
 	browser.storage.local.get().then((result) => {
 		if (!result.enabled) {
-			browser.storage.local.set({ "enabled": "0"}).then(setItem, onError)
+			browser.storage.local.set({ "enabled": 0}).then(setItem, onError)
 			console.log('enabled data set')
 		}
 
 		if (!result.heavyDesign) {
-			browser.storage.local.set({ "heavyDesign": "0"}).then(setItem, onError)
+			browser.storage.local.set({ "heavyDesign": 0}).then(setItem, onError)
 			console.log('heavyDesign data set')
 		}
 
 		if (!result.eventDesign) {
-			browser.storage.local.set({ "eventDesign": "0"}).then(setItem, onError)
+			browser.storage.local.set({ "eventDesign": 0}).then(setItem, onError)
 			console.log('eventDesign data set')
 		}
 	})
