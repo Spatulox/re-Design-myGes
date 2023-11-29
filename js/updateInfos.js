@@ -5,41 +5,6 @@ const clearCache = document.getElementById('clearCache')
 
 // ------------------------------------------------------------ //
 
-async function getLocalValues() {
-	let tmp = []
-
-	try {
-		let result = await browser.storage.local.get("enabled");
-		tmp.push(result.enabled);
-	} catch (error) {
-		tmp.push('Error')
-		console.log('Erreur lors de la récupération des données : ' + error);
-		return null;
-	}
-
-	try {
-		let result = await browser.storage.local.get("heavyDesign");
-		tmp.push(result.heavyDesign);
-	} catch (error) {
-		tmp.push('Error')
-		console.log('Erreur lors de la récupération des données : ' + error);
-		return null;
-	}
-
-	try {
-		let result = await browser.storage.local.get("eventDesign");
-		tmp.push(result.eventDesign);
-	} catch (error) {
-		tmp.push('Error')
-		console.log('Erreur lors de la récupération des données : ' + error);
-		return null;
-	}
-
-	return tmp
-}
-
-// ------------------------------------------------------------ //
-
 async function checkChecked(){
 
 	let tmp = await getLocalValues()
@@ -86,14 +51,39 @@ async function checkChecked(){
 	catch{
 		console.log('Error when activating eventDesign')
 	}
+
+	sendMessageToUpdateCSS()
+
 }
 
 // ------------------------------------------------------------ //
 
-async function main(){
+async function updatePopup(){
 	await checkChecked()
 }
 
+
+// ------------------------------------------------------------ //
+
+function sendMessageToUpdateCSS(){
+	browser.tabs.query({url: '*://*/*'}, function(tabs) {
+		var mygesTab = tabs.find(tab => tab.url.includes('myges'));
+		if (mygesTab) {
+		  browser.tabs.sendMessage(mygesTab.id, {action: 'updateCSS'}, function(response) {
+		    console.log('Mise à jour du CSS de myges effectuée');
+		  });
+		} else {
+		  console.log('L\'onglet myges n\'existe pas.');
+		}
+	});
+}
+
+
+// ------------------------------------------------------------ //
+
+/*
+###########################################################################
+*/
 
 // --------------- Listen to events (ckecking ckeckboxs)------------------ //
 
@@ -162,6 +152,5 @@ clearCache.addEventListener('click', async function() {
 	await checkChecked()
 });
 
-
 // --------------------------- // main part
-main()
+updatePopup()

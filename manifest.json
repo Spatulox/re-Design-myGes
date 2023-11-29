@@ -9,13 +9,14 @@
   "content_scripts": [
     {
       "matches": ["https://myges.fr/*"],
-      "js": ["main.js"]
+      "js": ["main.js", "js/injectCSS.js", "js/functions.js", "js/reworkFunctions.js"]
     }
   ],
   "devtools_page": "devtools/popup.html",
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "activeTab"
   ],
   "action": {
     "default_icon": "./images/letter_d_PNG79.webp",
