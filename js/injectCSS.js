@@ -52,21 +52,79 @@ async function injectCSS(){
 
   if(enabled == 1 && heavyDesign == 0){
     console.log('Normal design')
-    // Header / Images
-    reworkHeader();
+    // // Header / Images
+    // reworkHeader();
 
-    // Rework the main part
-    reworkMain()
+    // // Rework the main part
+    // reworkMain()
 
     // Add some extra :
 
     style.textContent = `
-    #mg_portal_body {
-      background-color: rgb(219, 19, 19);
+    .mg_portal_partners_left, .mg_portal_partners{
+      display: none;
     }
 
-    #mg_portal_center{
-      background-color: rgb(145, 9, 9);
+    #mg_portal_slideshow, .mg_slideshow_overlay{
+      width: 60vw;
+      height: auto;
+    }
+    .flexslider .slides img{
+      width: 100%;
+      height: auto;
+      position: static;
+    }
+
+    #mg_portal_slideshow .flex-control-nav{
+      top: inherit;
+    }
+
+    /*Main part*/
+
+    #mg_portal_content{
+    width: 60vw;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #j_idt159, .mg_home_welcome{
+      width: 100%;
+    }
+
+    #mg_portal_content > :nth-child(n+5){
+    /* div, #mg_portal_content form{*/
+      display: inline-block;
+      width: 45%;
+      margin: 0px;
+      margin-bottom: 50px;
+      padding: 5px 5px;
+    }
+
+    .mg_title span{
+      padding-left: 30px;
+    }
+
+    @media (max-width: 1080px) {
+      #mg_portal_slideshow, .mg_slideshow_overlay{  
+        width: 80vw;
+      }
+      
+      #mg_portal_content{ 
+        width: 80vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+       }
+       
+       #mg_portal_content > :nth-child(n+5){  
+        display: inline-block;
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 50px;
+        padding: 5px 5px;
+       }
+
     }
       `;
   }
