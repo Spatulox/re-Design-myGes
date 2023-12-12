@@ -1,1 +1,9 @@
 https://ges-cas.kordis.fr/
+
+
+
+Couper la fonction injectCSS end eux afin de puovoir lui donner le CSS qu'on veut injecter avant de l'executer.
+
+Ca donnera deux fonctions :
+prepareCSS()
+et injectCSS qui sera appelé dans prepareCSS().
