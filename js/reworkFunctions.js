@@ -136,6 +136,10 @@ function reworkMain(){
 		admissionDoc.style.width = '100%'
 	}
 
+	if(path.includes('planning-calendar')){
+		
+	}
+
 
 	if (path.includes('contacts')){
 		let j_idt172 = document.getElementById('j_idt172')

@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "Redesign the myges website",
   "icons": {
-    "48": "./images/letter_d_PNG79.webp"
+    "48": "./images/icone.webp"
   },
   "content_scripts": [
     {
@@ -19,7 +19,7 @@
     "activeTab"
   ],
   "action": {
-    "default_icon": "./images/letter_d_PNG79.webp",
+    "default_icon": "./images/icone.webp",
     "default_title": "re:DeSign myGes",
     "default_popup": "popup.html"
   },
