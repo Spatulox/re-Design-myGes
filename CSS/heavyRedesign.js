@@ -184,7 +184,7 @@ function getHeavyRedesignCss(){
       width: auto;
     }*/
 
-    #admissionDoc, #scolarityDoc, #candidateDocListWidget, #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget, #coursesSyllabusForm, #studentOpenGestionForm, #projectListForm, #offersForm, #listStudentStageOfferWidget{
+    #admissionDoc, #scolarityDoc, #candidateDocListWidget, #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget, #coursesSyllabusForm, #studentOpenGestionForm, #projectListForm, #offersForm, #listStudentStageOfferWidget, #openActionListWidget > .mg_content, #openActionListWidget > .mg_title , #marksWidget > div, #missingsWidget > div{
       width: 90%;
       margin: auto;
       /*margin-top: 10px;*/
@@ -194,7 +194,7 @@ function getHeavyRedesignCss(){
       float: inherit;
     }
 
-    #calendar, #annualDocWidget, #admissionDocListWidget, #scolarityDocListWidget, #coursesFilesForm, #syllabusWidget, #studentOpenGestionWidget, #listProjectWidget, #j_idt176, #offersWidget{
+    #calendar, #annualDocWidget, #admissionDocListWidget, #scolarityDocListWidget, #coursesFilesForm, #syllabusWidget, #studentOpenGestionWidget, #listProjectWidget, #j_idt176, #offersWidget, #openActionListWidget, #marksWidget, #missingsWidget{
       width: 100%;
       margin: inherit;
     }
