@@ -6,6 +6,12 @@
   "icons": {
     "48": "./images/icone.webp"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "M78stormtrooper@laposte.net",
+      "strict_min_version": "109.0"
+    }
+  },
   "content_scripts": [
     {
       "matches": ["https://myges.fr/*"],
