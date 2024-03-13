@@ -109,19 +109,44 @@ async function injectCSS(){
     let exitButton = document.getElementsByClassName("exitButton")
     if(!exitButton || exitButton.length < 1){
       const mainLi = document.getElementById("mg_userinfo_panel")
-      const htmlContent = '<li class="exitButton" style="list-style: none; height: auto; width: 100%; margin: auto; margin-top: 10px; text-align: center;"><div class="mg_user_menu_row" style="margin: auto; width:40px;"><div style="font-size: 11px; font-weight: normal; letter-spacing: 0.4px;">Exit</div></div></li>';
+      // const htmlContent = '<li class="exitButton" style="list-style: none; height: auto; width: 100%; margin: auto; margin-top: 10px; text-align: center;"><div class="mg_user_menu_row" style="margin: auto; width:40px;"><div style="font-size: 11px; font-weight: normal; letter-spacing: 0.4px;">Exit</div></div></li>';
       
-      const tempElement = document.createElement('div');
-      tempElement.innerHTML = htmlContent;
-      const newLi = tempElement.firstChild;
+      // const tempElement = document.createElement('div');
+      // tempElement.innerHTML = htmlContent;
+      // const newLi = tempElement.firstChild;
 
-      mainLi.appendChild(newLi);
+      /*                          */
+
+      const liElement = document.createElement('li');
+      liElement.classList.add('exitButton');
+      liElement.style.listStyle = 'none';
+      liElement.style.height = 'auto';
+      liElement.style.width = '100%';
+      liElement.style.margin = 'auto';
+      liElement.style.marginTop = '10px';
+      liElement.style.textAlign = 'center';
+
+      const div1 = document.createElement('div');
+      div1.classList.add('mg_user_menu_row');
+      div1.style.margin = 'auto';
+      div1.style.width = '40px';
+
+      const div2 = document.createElement('div');
+      div2.style.fontSize = '11px';
+      div2.style.fontWeight = 'normal';
+      div2.style.letterSpacing = '0.4px';
+      div2.textContent = 'Exit';
+
+      div1.appendChild(div2);
+      liElement.appendChild(div1);
+
+      mainLi.appendChild(liElement);
 
       // Create an exit button nest to "scolarité"" and "mes services"
       const mainLi1 = document.getElementById("hiddable_1")
       const mainLi2 = document.getElementById("hiddable_2")
-      const newLiClone1 = newLi.cloneNode(true);
-      const newLiClone2 = newLi.cloneNode(true);
+      const newLiClone1 = liElement.cloneNode(true);
+      const newLiClone2 = liElement.cloneNode(true);
 
       mainLi1.appendChild(newLiClone1);
       mainLi2.appendChild(newLiClone2);
