@@ -68,11 +68,18 @@ async function checkChecked(){
 // ------------------------------------------------------------ //
 
 async function messagePopup(msg){
-	popupMsg.innerHTML = msg
-	popupMsg.classList.add('display')
-	setTimeout(function() {
-  popupMsg.classList.remove('display')
-}, 3000);
+	var textNode = document.createTextNode(msg);
+  while (popupMsg.firstChild) {
+      popupMsg.removeChild(popupMsg.firstChild);
+  }
+  
+  popupMsg.appendChild(textNode);
+
+  popupMsg.classList.add('display');
+  setTimeout(function() {
+      popupMsg.removeChild(textNode);
+      popupMsg.classList.remove('display');
+  }, 3000);
 }
 
 // ------------------------------------------------------------ //
