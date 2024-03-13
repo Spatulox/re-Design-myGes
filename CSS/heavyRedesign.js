@@ -11,6 +11,11 @@ function getHeavyRedesignCss(){
       height: 100%;
     }
 
+    #mg_portal_header_top{
+      width: 20vw;
+      overflow: hidden;
+    }
+
     #mg_portal_header_bottom{
       height: 100%;
     }
@@ -227,7 +232,7 @@ function getHeavyRedesignCss(){
 
     #mg_portal_center{
       padding-bottom: 20px;
-      height: calc(100vh - 260px - 112.28px);
+      min-height: calc(100vh - 260px - 112.28px);
       overflow-y: auto;
       overflow-x: hidden;
     }
@@ -295,7 +300,7 @@ function getHeavyRedesignCss(){
     #mg_footer{
       width: 80vw;
       left: 20vw;
-      position: fixed;
+      position: relative;
       bottom: 0px;
     }
 
