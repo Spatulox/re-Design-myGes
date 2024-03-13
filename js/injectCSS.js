@@ -73,8 +73,6 @@ async function injectCSS(){
     const mg_partner = document.getElementsByClassName("mg_partner")
     const imgDeconnectionParametre = document.querySelectorAll("#mg_userinfo_panel li > img")[0]
 
-    const actionPositionDialog = document.getElementById('actionPositionDialog')
-
     // Sélectionner les div à déplacer
     const div1 = document.getElementsByClassName('mg_hideOnPrint mg_portal_partners')[0];
     const div2 = document.getElementsByClassName('mg_hideOnPrint mg_portal_partners_left')[0];
@@ -86,11 +84,6 @@ async function injectCSS(){
     // Déplacer les div vers les nouveaux parents
     parent3.appendChild(div1);
     parent3.appendChild(div2);
-
-    if(actionPositionDialog){
-      console.log(actionPositionDialog.style.top)
-      actionPositionDialog.style.top = "200px"
-    }
 
     const brElement = element.querySelector('br');
     // Remove the br next to our name
