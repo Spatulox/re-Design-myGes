@@ -9,7 +9,7 @@
   "content_scripts": [
     {
       "matches": ["https://myges.fr/*"],
-      "js": ["main.js", "js/injectCSS.js", "js/functions.js", "js/reworkFunctions.js"]
+      "js": ["main.js", "js/injectCSS.js", "js/functions.js", "js/reworkFunctions.js", "CSS/eventRedesign.js", "CSS/heavyRedesign.js", "CSS/normalRedesign.js"]
     }
   ],
   "devtools_page": "devtools/popup.html",
