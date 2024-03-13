@@ -225,7 +225,7 @@ function getHeavyRedesignCss(){
     /* BODY */
 
     #mg_portal_body{
-      width: 80vw;
+      width: 78.9vw;
       transform: translateX(20vw);
       overflow: hidden;
     }
@@ -298,7 +298,7 @@ function getHeavyRedesignCss(){
 
 
     #mg_footer{
-      width: 80vw;
+      width: 78.9vw;
       left: 20vw;
       position: relative;
       bottom: 0px;
