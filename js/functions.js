@@ -89,10 +89,10 @@ function getNewChineseYears(annee){
 	return new Date(annee, mois, jour);
 }
 
-function getValentine(){
+function getChandleur(){
 	let dateActuelle = new Date();
-	dateActuelle.setMonth(1);
-	dateActuelle.setDate(14);
+	dateActuelle.setMonth(1); // Month beghin at 0
+	dateActuelle.setDate(2);
 	return dateActuelle
 }
 
