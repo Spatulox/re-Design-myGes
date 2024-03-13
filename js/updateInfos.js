@@ -29,7 +29,6 @@ async function checkChecked(){
 	heavyDesign.children[0].checked = false
 	eventDesign.children[0].checked = false
 
-
 	normalDesign.classList.remove('active')
 	heavyDesign.classList.remove('active')
 	eventDesign.classList.remove('active')
@@ -86,10 +85,10 @@ async function updatePopupHtml(){
 // ------------------------------------------------------------ //
 
 function sendMessageToUpdateCSS(){
-	browser.tabs.query({url: '*://*/*'}, function(tabs) {
+	chrome.tabs.query({url: '*://*/*'}, function(tabs) {
 		var mygesTab = tabs.find(tab => tab.url.includes('myges'));
 		if (mygesTab) {
-		  browser.tabs.sendMessage(mygesTab.id, {action: 'updateCSS'}, function(response) {
+		  chrome.tabs.sendMessage(mygesTab.id, {action: 'updateCSS'}, function(response) {
 		    console.log('CSS Updated !');
 		    messagePopup('CSS Updated !')
 		  });
@@ -98,6 +97,7 @@ function sendMessageToUpdateCSS(){
 		  console.log('MyGes tab doesn\'t exist...');
 		}
 	});
+
 }
 
 
@@ -116,11 +116,11 @@ normalDesign.addEventListener('click', async function() {
 
   if (this.children[0].checked) {
     // console.log('La case à cocher est cochée, décochage');
-	await browser.storage.local.set({ "enabled": "0"})
+	await chrome.storage.local.set({ "enabled": "0"})
     this.children[0].checked = false
   } else {
     // console.log('La case à cocher est décochée, cochage');
-	await browser.storage.local.set({ "enabled": "1"})
+	await chrome.storage.local.set({ "enabled": "1"})
     this.children[0].checked = true
   }
 
@@ -136,11 +136,11 @@ heavyDesign.addEventListener('click', async function() {
 
   if (this.children[0].checked) {
     // console.log('La case à cocher est cochée, décochage');
-	await browser.storage.local.set({ "heavyDesign": "0"})
+	await chrome.storage.local.set({ "heavyDesign": "0"})
 	this.children[0].checked = true
   } else {
     // console.log('La case à cocher est décochée, cochage');
-	await browser.storage.local.set({ "heavyDesign": "1"})
+	await chrome.storage.local.set({ "heavyDesign": "1"})
 	this.children[0].checked = false
   }
 
@@ -167,11 +167,11 @@ eventDesign.addEventListener('click', async function() {
 
   if (this.children[0].checked) {
     // console.log('La case à cocher est cochée, décochage');
-	await browser.storage.local.set({ "eventDesign": "0"})
+	await chrome.storage.local.set({ "eventDesign": "0"})
 	this.children[0].checked = true
   } else {
     // console.log('La case à cocher est décochée, cochage');
-	await browser.storage.local.set({ "eventDesign": "1"})
+	await chrome.storage.local.set({ "eventDesign": "1"})
 	this.children[0].checked = false
   }
 
@@ -193,11 +193,11 @@ eventDesign.addEventListener('click', async function() {
 
 // Listen for clear cache button
 clearCache.addEventListener('click', async function() {
-	await browser.storage.local.clear()
+	await chrome.storage.local.clear()
 
-	await browser.storage.local.set({ "enabled": "0"})
-	await browser.storage.local.set({ "heavyDesign": "0"})
-	await browser.storage.local.set({ "eventDesign": "0"})
+	await chrome.storage.local.set({ "enabled": "0"})
+	await chrome.storage.local.set({ "heavyDesign": "0"})
+	await chrome.storage.local.set({ "eventDesign": "0"})
 	console.log('Cache reinitialized')
 	await checkChecked()
 	messagePopup('Cache reinitialized')

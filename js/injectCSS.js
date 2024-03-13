@@ -30,7 +30,6 @@ async function injectCSS(){
   }
 
   style.textContent = ""
-
   // Enable some customs design
 
   if(enabled == 0){
@@ -232,7 +231,7 @@ async function injectCSS(){
     // If it's the right date
 
     //retrieve images links
-    var manifest = browser.runtime.getManifest();
+    var manifest = chrome.runtime.getManifest();
     let imageUrl = manifest.action.default_icon.split('images')[0]+`images/${dateEvent}/`
 
     let nbRandom1 = Math.floor(Math.random() * 2) + 1;
