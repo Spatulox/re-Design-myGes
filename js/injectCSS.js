@@ -255,6 +255,7 @@ async function injectCSS(){
 
     if(!dateEvent){
       console.log("No events right now")
+      style.textContent += getHeavyRedesignCss()
       return
     }
 
