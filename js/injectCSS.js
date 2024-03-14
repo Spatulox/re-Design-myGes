@@ -101,7 +101,13 @@ async function injectCSS(){
 
     element.style = ""
     imgDeconnectionParametre.style = "width: 5px; height: 9px;"
-    style.textContent += getHeavyRedesignCss()
+
+
+    // To "overwrite" some event design with the heavy design which need to be compatible
+    if (eventDesign != 1){
+      style.textContent += getHeavyRedesignCss()
+    }
+    
 
 
 
@@ -245,7 +251,7 @@ async function injectCSS(){
 
 
     // For Debug
-    //dateEvent = "easter"
+    dateEvent = "chinese"
 
 
 
@@ -295,8 +301,9 @@ async function injectCSS(){
     bottomImage = `${imageUrl}bottom.png`
 
     //console.log(imageUrl)
-   
+
     style.textContent += getEventRedesignCss(topImage, bottomImage, rightImage, leftImage)
+    style.textContent += getHeavyRedesignCss()
 
   }
 

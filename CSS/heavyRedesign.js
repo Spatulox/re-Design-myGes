@@ -305,6 +305,13 @@ function getHeavyRedesignCss(){
     }
 
 
+
+    /* EVENT */
+
+    #eventImageLeft{
+      left: 90px;
+    }
+
     `
   return style
 }
