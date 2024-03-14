@@ -251,7 +251,7 @@ async function injectCSS(){
 
 
     // For Debug
-    dateEvent = "chinese"
+    //dateEvent = "chinese"
 
 
 
