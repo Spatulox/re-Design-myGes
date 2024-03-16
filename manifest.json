@@ -17,6 +17,9 @@
     "storage",
     "activeTab"
   ],
+  "host_permissions": [
+    "*://myges.fr/*"
+  ],
   "action": {
     "default_icon": "./images/icone.png",
     "default_title": "re:DeSign myGes",
