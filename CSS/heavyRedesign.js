@@ -131,7 +131,6 @@ function getHeavyRedesignCss(){
     }
 
 
-
     .mg_userinfo > a{
       display: flex;
       flex-wrap: nowrap;
@@ -143,7 +142,7 @@ function getHeavyRedesignCss(){
     //   
     // }*/
 
-    #j_idt159{
+    #j_idt159, #j_idt144{
       width: 100%;
     }
 
@@ -184,19 +183,24 @@ function getHeavyRedesignCss(){
       width: auto;
     }*/
 
-    #admissionDoc, #scolarityDoc, #candidateDocListWidget, #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget, #coursesSyllabusForm, #studentOpenGestionForm, #projectListForm, #offersForm, #listStudentStageOfferWidget, #openActionListWidget > .mg_content, #openActionListWidget > .mg_title , #marksWidget > div, #missingsWidget > div{
+    #admissionDoc, #scolarityDoc, #candidateDocListWidget, #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget, #coursesSyllabusForm, #studentOpenGestionForm, #projectListForm, #offersForm, #listStudentStageOfferWidget, #openActionListWidget > .mg_content, #openActionListWidget > .mg_title , #marksWidget > div, #missingsWidget > div, #eventListWidget > div, #eventPassedListWidget > div, #expWidget >  div, #skillsWidget > div, #trainingsWidget > div, #contactsForm > div, #j_idt175 > div, #eventDetailForm > div, #eventDetailForm > button{
       width: 90%;
       margin: auto;
       /*margin-top: 10px;*/
     }
 
-    #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget{
+    #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget, #contactsForm > div, #eventDetailForm > div{
       float: inherit;
     }
 
-    #calendar, #annualDocWidget, #admissionDocListWidget, #scolarityDocListWidget, #coursesFilesForm, #syllabusWidget, #studentOpenGestionWidget, #listProjectWidget, #j_idt176, #offersWidget, #openActionListWidget, #marksWidget, #missingsWidget{
+    #calendar, #annualDocWidget, #admissionDocListWidget, #scolarityDocListWidget, #coursesFilesForm, #syllabusWidget, #studentOpenGestionWidget, #listProjectWidget, #j_idt176, #offersWidget, #openActionListWidget, #marksWidget, #missingsWidget, #eventListWidget, #eventPassedListWidget, #expWidget, #skillsWidget, #trainingsWidget, #contactsForm, #j_idt175, #eventDetailForm{
       width: 100%;
       margin: inherit;
+    }
+
+    #eventDetailForm > button{
+      display: block;
+      margin-top: 10px;
     }
 
     /* Avoiding overflow */
@@ -225,7 +229,7 @@ function getHeavyRedesignCss(){
     /* BODY */
 
     #mg_portal_body{
-      width: 78.9vw;
+      width: 80vw;
       transform: translateX(20vw);
       overflow: hidden;
     }
@@ -298,7 +302,7 @@ function getHeavyRedesignCss(){
 
 
     #mg_footer{
-      width: 78.9vw;
+      width: 80vw;
       left: 20vw;
       position: relative;
       bottom: 0px;
@@ -311,7 +315,7 @@ function getHeavyRedesignCss(){
     #eventImageLeft{
       left: 90px;
     }
-    
+
     `
   return style
 }
