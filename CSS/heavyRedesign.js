@@ -118,7 +118,7 @@ function getHeavyRedesignCss(){
     }
 
     .mg_nav_group ul{
-      height: 100vh;
+      height: calc(100vh - 110px);
       position: absolute;
       top: 106px;
       z-index: 200000;
