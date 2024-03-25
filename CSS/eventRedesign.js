@@ -17,9 +17,11 @@ function getEventRedesignCss(topImage, bottomImage, rightImage, leftImage){
     }
 
     #eventImageRight{
+      /pointer-events: none;
       position: fixed;
       bottom: 60px;
       right: 20px;
+      pointer-events: none;
       width: 25vh;
       height: 25vh;
       background-image: url('${rightImage}');
@@ -28,15 +30,17 @@ function getEventRedesignCss(topImage, bottomImage, rightImage, leftImage){
     }
 
     #eventImageLeft{
+      pointer-events: none;
       position: fixed;
       bottom: 60px;
-      left: 10px;
+      left: 50px;
       width: 25vh;
       height: 25vh;
       background-image: url('${leftImage}');
       background-size: contain;
       background-repeat: no-repeat;
     }
+
     `
 
   return style

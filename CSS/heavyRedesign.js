@@ -193,7 +193,7 @@ function getHeavyRedesignCss(){
       float: inherit;
     }
 
-    #calendar, #annualDocWidget, #admissionDocListWidget, #scolarityDocListWidget, #coursesFilesForm, #syllabusWidget, #studentOpenGestionWidget, #listProjectWidget, #j_idt176, #offersWidget, #openActionListWidget, #marksWidget, #missingsWidget, #eventListWidget, #eventPassedListWidget, #expWidget, #skillsWidget, #trainingsWidget, #contactsForm, #j_idt175, #eventDetailForm{
+    #calendar, #annualDocWidget, #admissionDocListWidget, #scolarityDocListWidget, #coursesFilesForm, #syllabusWidget, #studentOpenGestionWidget, #listProjectWidget, #j_idt176, #offersWidget, #openActionListWidget, #marksWidget, #missingsWidget, #eventListWidget, #eventPassedListWidget, #expWidget, #skillsWidget, #trainingsWidget, #contactsForm, #j_idt175, #eventDetailForm, #j_idt146, #j_idt153{
       width: 100%;
       margin: inherit;
     }
@@ -313,7 +313,8 @@ function getHeavyRedesignCss(){
     /* EVENT */
 
     #eventImageLeft{
-      left: 90px;
+      left: 80px;
+      opacity: 0.2;
     }
 
     `
