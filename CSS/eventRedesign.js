@@ -17,7 +17,7 @@ function getEventRedesignCss(topImage, bottomImage, rightImage, leftImage){
     }
 
     #eventImageRight{
-      /pointer-events: none;
+      pointer-events: none;
       position: fixed;
       bottom: 60px;
       right: 20px;
