@@ -304,7 +304,10 @@ async function injectCSS(){
     //console.log(imageUrl)
 
     style.textContent += getEventRedesignCss(topImage, bottomImage, rightImage, leftImage)
-    style.textContent += getHeavyRedesignCss()
+
+    if (heavyDesign == 1){
+      style.textContent += getHeavyRedesignCss()
+    }
 
   }
 
