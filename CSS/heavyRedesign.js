@@ -220,10 +220,10 @@ function getHeavyRedesignCss(){
       transform: translateY(+4300px);
     }*/
 
-    #actionPositionDialog_modal{
+    #actionPositionDialog_modal, actionPropositionDialog_modal{
       display: none;
+      pointer-events: none;
     }
-
 
 
     /* BODY */
@@ -307,7 +307,6 @@ function getHeavyRedesignCss(){
       position: relative;
       bottom: 0px;
     }
-
 
 
     /* EVENT */
