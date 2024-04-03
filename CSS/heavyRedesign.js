@@ -142,7 +142,7 @@ function getHeavyRedesignCss(){
     //   
     // }*/
 
-    #j_idt159, #j_idt144, j_idt160{
+    #j_idt159, #j_idt144, #j_idt160{
       width: 100%;
     }
 
