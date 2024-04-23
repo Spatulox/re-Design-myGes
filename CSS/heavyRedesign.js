@@ -138,11 +138,8 @@ function getHeavyRedesignCss(){
       align-items: center;
     }
 
-    /* #mg_portal_nav > li :hover{
-    //   
-    // }*/
 
-    #j_idt159, #j_idt144, #j_idt160{
+    #mg_portal_content > form:first-child, #j_idt159, #j_idt144, #j_idt160{
       width: 100%;
     }
 
@@ -163,30 +160,25 @@ function getHeavyRedesignCss(){
       margin-top: 10px;
       border-top: inherit;
     }
-
-    /*.mg_widget{
-      width: 45%;
-      padding-top: 10px;
-      margin-top: 30px;
-      border-top: solid black;
-    }*/
-
-    #j_idt213, #j_idt234, #j_idt248, #j_idt262, #j_idt280{
+    
+    .mg_home_welcome ~ div:not(.spacer) {
       width: 45%;
       padding-top: 10px;
       margin-top: 30px;
       border-top: solid black;
     }
+    
+    .mg_home_welcome ~ div > div:first-child {
+      color: white;
+      background-color: #217bb1; 
+    }
+
 
     /*Particular widget*/
-    /*#listProjectWidget, #annualDocWidget, #admissionDocListWidget, #scolarityDocListWidget, #candidateDocListWidget{
-      width: auto;
-    }*/
 
     #admissionDoc, #scolarityDoc, #candidateDocListWidget, #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget, #coursesSyllabusForm, #studentOpenGestionForm, #projectListForm, #offersForm, #listStudentStageOfferWidget, #openActionListWidget > .mg_content, #openActionListWidget > .mg_title , #marksWidget > div, #missingsWidget > div, #eventListWidget > div, #eventPassedListWidget > div, #expWidget >  div, #skillsWidget > div, #trainingsWidget > div, #contactsForm > div, #j_idt175 > div, #eventDetailForm > div, #eventDetailForm > button{
       width: 90%;
       margin: auto;
-      /*margin-top: 10px;*/
     }
 
     #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget, #contactsForm > div, #eventDetailForm > div{
@@ -215,10 +207,6 @@ function getHeavyRedesignCss(){
       top: 0px;
       /*left: 20vw*/
     }
-
-    /*#actionPositionDialog{
-      transform: translateY(+4300px);
-    }*/
 
     #actionPositionDialog_modal, actionPropositionDialog_modal{
       display: none;
