@@ -217,7 +217,8 @@ function getHeavyRedesignCss(){
     /* BODY */
 
     #mg_portal_body{
-      width: 80vw;
+      /*width: 80vw;/*See end of file*/
+      width: 79vw;
       transform: translateX(20vw);
       overflow: hidden;
     }
@@ -290,7 +291,7 @@ function getHeavyRedesignCss(){
 
 
     #mg_footer{
-      width: 80vw;
+      width: 80vw; /*See end of file*/
       left: 20vw;
       position: relative;
       bottom: 0px;
@@ -302,6 +303,25 @@ function getHeavyRedesignCss(){
     #eventImageLeft{
       left: 80px;
       opacity: 0.2;
+    }
+    
+    /* Gecko */
+    @-moz-document url-prefix() {
+      #mg_footer {
+        width: 80vw;
+      }
+      #mg_portal_body{
+        width: 80vw;
+      }
+    }
+    /* Chromium */
+    @supports (-webkit-appearance:none) {
+      #mg_footer {
+        width: 79vw;
+      }
+      #mg_portal_body{
+        width: 79vw;
+      }
     }
 
     `

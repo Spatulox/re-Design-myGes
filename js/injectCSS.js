@@ -30,7 +30,6 @@ async function injectCSS(){
   }
 
   style.textContent = ""
-
   // Enable some customs design
 
   if(enabled == 0){
@@ -107,6 +106,10 @@ async function injectCSS(){
     element.style = ""
     imgDeconnectionParametre.style = "width: 5px; height: 9px;"
 
+    // To "overwrite" some event design with the heavy design which need to be compatible
+    if (eventDesign != 1){
+      style.textContent += getHeavyRedesignCss()
+    }
 
     // To "overwrite" some event design with the heavy design which need to be compatible
     if (eventDesign != 1){
@@ -116,6 +119,7 @@ async function injectCSS(){
 
 
 
+    // Create an exit button for menu déroulant next to the name
     // Create an exit button for menu déroulant next to the name
     let exitButton = document.getElementsByClassName("exitButton")
     if(!exitButton || exitButton.length < 1){
@@ -269,7 +273,7 @@ async function injectCSS(){
     // If it's the right date
 
     //retrieve images links
-    var manifest = browser.runtime.getManifest();
+    var manifest = chrome.runtime.getManifest();
     let imageUrl = manifest.action.default_icon.split('images')[0]+`images/${dateEvent}/`
 
     let nbRandom1 = Math.floor(Math.random() * 2) + 1;
@@ -309,6 +313,7 @@ async function injectCSS(){
     //console.log(imageUrl)
 
     style.textContent += getEventRedesignCss(topImage, bottomImage, rightImage, leftImage)
+    style.textContent += getHeavyRedesignCss()
 
     if (heavyDesign == 1){
       style.textContent += getHeavyRedesignCss()
