@@ -269,19 +269,11 @@ async function injectCSS(){
     if(dateEvent){
       // If it's the right date
 
-      //retrieve images links
-      var manifest = browserAPI.runtime.getManifest();
-      console.log(manifest)
-      let imageUrl = manifest.action.default_icon.split('images')[0]+`images/${dateEvent}/`
-
       let nbRandom1 = Math.floor(Math.random() * 2) + 1;
       let nbRandom2 = Math.floor(Math.random() * 2) + 1;
 
       // For 5 image (2 image per event rignt now)
       // let nombreAleatoire = Math.floor(Math.random() * 5) + 1;
-
-
-
 
       if(!document.getElementById("eventDiv")){
         // Create the div for two images
@@ -303,17 +295,16 @@ async function injectCSS(){
         newDiv.appendChild(img2);
       }
 
-      topImage = `${imageUrl}top.gif`
-      rightImage = `${imageUrl}right${nbRandom1}.png`
-      leftImage = `${imageUrl}left${nbRandom2}.png`
-      bottomImage = `${imageUrl}bottom.png`
+      let imageUrl = `images/${dateEvent}/`
+      topImage = browserAPI.runtime.getURL(`${imageUrl}top.gif`)
+      rightImage = browserAPI.runtime.getURL(`${imageUrl}right${nbRandom1}.png`)
+      leftImage = browserAPI.runtime.getURL(`${imageUrl}left${nbRandom2}.png`)
+      bottomImage = browserAPI.runtime.getURL(`${imageUrl}bottom.png`)
 
-      //console.log(imageUrl)
       style.textContent += getEventRedesignCss(topImage, bottomImage, rightImage, leftImage)
     } else {
       console.log("No events right now")
     }
-    //style.textContent += getHeavyRedesignCss()
 
     if (heavyDesign == 1){
       style.textContent += getHeavyRedesignCss()
