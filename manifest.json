@@ -31,11 +31,8 @@
     "activeTab"
   ],
   "host_permissions": [
-    "https://myges.fr/*"
+    "*://myges.fr/*"
   ],
-  "background": {
-    "scripts": ["js/background.js"]
-  },
   "action": {
     "default_icon": "./images/icone.png",
     "default_title": "re:DeSign myGes",
