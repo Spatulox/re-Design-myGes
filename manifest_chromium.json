@@ -12,6 +12,10 @@
       "strict_min_version": "109.0"
     }
   },
+  "web_accessible_resources": [{
+    "resources": ["images/*"],
+    "matches": ["<all_urls>"]
+  }],
   "content_scripts": [
     {
       "matches": ["https://myges.fr/*"],
@@ -36,7 +40,8 @@
   "action": {
     "default_icon": "./images/icone.png",
     "default_title": "re:DeSign myGes",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "images":"./images/*"
   },
   "content_security_policy": {
 	  "extension_pages": "script-src 'self'"
