@@ -139,7 +139,7 @@ function getHeavyRedesignCss(){
     }
 
 
-    #mg_portal_content > form:first-child, #j_idt159, #j_idt144, #j_idt160{
+    #mg_portal_content > form:first-child{
       width: 100%;
     }
 
@@ -176,7 +176,7 @@ function getHeavyRedesignCss(){
 
     /*Particular widget*/
 
-    #admissionDoc, #scolarityDoc, #candidateDocListWidget, #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget, #coursesSyllabusForm, #studentOpenGestionForm, #projectListForm, #offersForm, #listStudentStageOfferWidget, #openActionListWidget > .mg_content, #openActionListWidget > .mg_title , #marksWidget > div, #missingsWidget > div, #eventListWidget > div, #eventPassedListWidget > div, #expWidget >  div, #skillsWidget > div, #trainingsWidget > div, #contactsForm > div, #j_idt175 > div, #eventDetailForm > div, #eventDetailForm > button{
+    #admissionDoc, #scolarityDoc, #candidateDocListWidget, #stageDocumentsWidget, #litigationInvoiceWidget, #coursesWidget, #coursesSyllabusForm, #studentOpenGestionForm, #projectListForm, #offersForm, #listStudentStageOfferWidget, #openActionListWidget > .mg_content, #openActionListWidget > .mg_title , #marksWidget > div, #missingsWidget > div, #eventListWidget > div, #eventPassedListWidget > div, #expWidget >  div, #skillsWidget > div, #trainingsWidget > div, #contactsForm > div, #eventDetailForm > div, #eventDetailForm > button{
       width: 90%;
       margin: auto;
     }
@@ -185,7 +185,7 @@ function getHeavyRedesignCss(){
       float: inherit;
     }
 
-    #calendar, #annualDocWidget, #admissionDocListWidget, #scolarityDocListWidget, #coursesFilesForm, #syllabusWidget, #studentOpenGestionWidget, #listProjectWidget, #j_idt176, #offersWidget, #openActionListWidget, #marksWidget, #missingsWidget, #eventListWidget, #eventPassedListWidget, #expWidget, #skillsWidget, #trainingsWidget, #contactsForm, #j_idt175, #eventDetailForm, #j_idt146, #j_idt153{
+    #calendar, #annualDocWidget, #admissionDocListWidget, #scolarityDocListWidget, #coursesFilesForm, #syllabusWidget, #studentOpenGestionWidget, #listProjectWidget, #offersWidget, #openActionListWidget, #marksWidget, #missingsWidget, #eventListWidget, #eventPassedListWidget, #expWidget, #skillsWidget, #trainingsWidget, #contactsForm, #eventDetailForm{
       width: 100%;
       margin: inherit;
     }
