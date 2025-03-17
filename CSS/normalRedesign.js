@@ -81,12 +81,15 @@ function getNormalRedesignCss(){
         justify-content: center;
       }
 
-      #j_idt159, .mg_home_welcome{
+      #mg_portal_content > form:first-child, #mg_portal_content form{
+        width: 100%;
+      }
+
+      .mg_home_welcome{
         width: 100%;
       }
 
       #mg_portal_content > :nth-child(n+5){
-      /* div, #mg_portal_content form{*/
         display: inline-block;
         width: 45%;
         margin: 0px;
