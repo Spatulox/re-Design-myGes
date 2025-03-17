@@ -261,60 +261,59 @@ async function injectCSS(){
 
 
     // For Debug
-    //dateEvent = "chinese"
+    //eventDesign = true
+    //dateEvent = "spooky"
+    //alert(dateEvent)
+
+
+    if(dateEvent){
+      // If it's the right date
+
+      //retrieve images links
+      var manifest = browserAPI.runtime.getManifest();
+      console.log(manifest)
+      let imageUrl = manifest.action.default_icon.split('images')[0]+`images/${dateEvent}/`
+
+      let nbRandom1 = Math.floor(Math.random() * 2) + 1;
+      let nbRandom2 = Math.floor(Math.random() * 2) + 1;
+
+      // For 5 image (2 image per event rignt now)
+      // let nombreAleatoire = Math.floor(Math.random() * 5) + 1;
 
 
 
-    if(!dateEvent){
+
+      if(!document.getElementById("eventDiv")){
+        // Create the div for two images
+        var newDiv = document.createElement("div");
+        newDiv.id = "eventDiv";
+
+        // Insérer la nouvelle div à la fin de l'élément body
+        document.body.appendChild(newDiv);
+
+        // Créer les balises img
+        var img1 = document.createElement("div");
+        img1.id = "eventImageRight"
+
+        var img2 = document.createElement("div");
+        img2.id = "eventImageLeft"
+
+        // Ajouter les balises img à la nouvelle div
+        newDiv.appendChild(img1);
+        newDiv.appendChild(img2);
+      }
+
+      topImage = `${imageUrl}top.gif`
+      rightImage = `${imageUrl}right${nbRandom1}.png`
+      leftImage = `${imageUrl}left${nbRandom2}.png`
+      bottomImage = `${imageUrl}bottom.png`
+
+      //console.log(imageUrl)
+      style.textContent += getEventRedesignCss(topImage, bottomImage, rightImage, leftImage)
+    } else {
       console.log("No events right now")
-      style.textContent += getHeavyRedesignCss()
-      return
     }
-
-    // If it's the right date
-
-    //retrieve images links
-    var manifest = browserAPI.runtime.getManifest();
-    let imageUrl = manifest.action.default_icon.split('images')[0]+`images/${dateEvent}/`
-
-    let nbRandom1 = Math.floor(Math.random() * 2) + 1;
-    let nbRandom2 = Math.floor(Math.random() * 2) + 1;
-
-    // For 5 image (2 image per event rignt now)
-    // let nombreAleatoire = Math.floor(Math.random() * 5) + 1;
-
-
-
-
-    if(!document.getElementById("eventDiv")){
-       // Create the div for two images
-      var newDiv = document.createElement("div");
-      newDiv.id = "eventDiv";
-
-      // Insérer la nouvelle div à la fin de l'élément body
-      document.body.appendChild(newDiv);
-
-      // Créer les balises img
-      var img1 = document.createElement("div");
-      img1.id = "eventImageRight"
-
-      var img2 = document.createElement("div");
-      img2.id = "eventImageLeft"
-
-      // Ajouter les balises img à la nouvelle div
-      newDiv.appendChild(img1);
-      newDiv.appendChild(img2);
-    }
-
-    topImage = `${imageUrl}top.gif`
-    rightImage = `${imageUrl}right${nbRandom1}.png`
-    leftImage = `${imageUrl}left${nbRandom2}.png`
-    bottomImage = `${imageUrl}bottom.png`
-
-    //console.log(imageUrl)
-
-    style.textContent += getEventRedesignCss(topImage, bottomImage, rightImage, leftImage)
-    style.textContent += getHeavyRedesignCss()
+    //style.textContent += getHeavyRedesignCss()
 
     if (heavyDesign == 1){
       style.textContent += getHeavyRedesignCss()
