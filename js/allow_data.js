@@ -1,8 +1,10 @@
+/*Only for firefox ?*/
+const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
 const button = document.querySelector('button')
 const message = document.getElementById('message')
 
 button.addEventListener('click', event => {
-  browser.permissions.request({
+  browserAPI.permissions.request({
     origins: ['https://myges.fr/*']
   }).then((granted) => {
     if (granted) {
@@ -10,9 +12,9 @@ button.addEventListener('click', event => {
       message.innerHTML = "Sucessfull !<br>You can now close the tab :)"
       message.classList.remove('red')
       message.classList.add('green')
-      browser.storage.local.set({ "enabled": 1})
-      browser.storage.local.set({ "heavyDesign": 1})
-      browser.storage.local.set({ "eventDesign": 1})
+      browserAPI.storage.local.set({ "enabled": 1})
+      browserAPI.storage.local.set({ "heavyDesign": 1})
+      browserAPI.storage.local.set({ "eventDesign": 1})
       alert("Please refresh myges tab\nS'il vous plait, recharger l'onglet myges")
     } else {
     	console.log("Error when according right to extension")

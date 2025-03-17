@@ -1,3 +1,4 @@
+//const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
 async function injectCSS(){
   let style = null
   let count = 0
@@ -273,7 +274,7 @@ async function injectCSS(){
     // If it's the right date
 
     //retrieve images links
-    var manifest = chrome.runtime.getManifest();
+    var manifest = browserAPI.runtime.getManifest();
     let imageUrl = manifest.action.default_icon.split('images')[0]+`images/${dateEvent}/`
 
     let nbRandom1 = Math.floor(Math.random() * 2) + 1;

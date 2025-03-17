@@ -32,7 +32,7 @@ async function getLocalValues() {
 	let tmp = []
 
 	try {
-		let result = await chrome.storage.local.get("enabled");
+		let result = await browserAPI.storage.local.get("enabled");
 		tmp.push(result.enabled);
 	} catch (error) {
 		tmp.push('Error')
@@ -41,7 +41,7 @@ async function getLocalValues() {
 	}
 
 	try {
-		let result = await chrome.storage.local.get("heavyDesign");
+		let result = await browserAPI.storage.local.get("heavyDesign");
 		tmp.push(result.heavyDesign);
 	} catch (error) {
 		tmp.push('Error')
@@ -50,7 +50,7 @@ async function getLocalValues() {
 	}
 
 	try {
-		let result = await chrome.storage.local.get("eventDesign");
+		let result = await browserAPI.storage.local.get("eventDesign");
 		tmp.push(result.eventDesign);
 	} catch (error) {
 		tmp.push('Error')

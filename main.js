@@ -1,4 +1,4 @@
-
+const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
 const WIDTHSIZE = "60vw"
 
 //----------------------------------------------------------//
@@ -27,7 +27,7 @@ async function main(){
 
 //----------------------------------------------------------//
 
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+browserAPI.runtime.onMessage.addListener(function(message, sender, sendResponse) {
 
   if (message.action === 'updateCSS') {
     injectCSS()
@@ -42,19 +42,19 @@ setTimeout(function() {
 	// chrome.storage.local.clear()
 
 	// Search if datas exist then set it if don't exist
-	chrome.storage.local.get().then((result) => {
+	browserAPI.storage.local.get().then((result) => {
 		if (!result.enabled) {
-			chrome.storage.local.set({ "enabled": 0}).then(setItem, onError)
+			browserAPI.storage.local.set({ "enabled": 0}).then(setItem, onError)
 			console.log('enabled data set')
 		}
 
 		if (!result.heavyDesign) {
-			chrome.storage.local.set({ "heavyDesign": 0}).then(setItem, onError)
+			browserAPI.storage.local.set({ "heavyDesign": 0}).then(setItem, onError)
 			console.log('heavyDesign data set')
 		}
 
 		if (!result.eventDesign) {
-			chrome.storage.local.set({ "eventDesign": 0}).then(setItem, onError)
+			browserAPI.storage.local.set({ "eventDesign": 0}).then(setItem, onError)
 			console.log('eventDesign data set')
 		}
 	})
