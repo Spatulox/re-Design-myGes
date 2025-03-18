@@ -91,7 +91,7 @@ function getNormalRedesignCss(){
 
       #mg_portal_content > :nth-child(n+5){
         display: inline-block;
-        width: 45%;
+        width: 100%; /*45%*/
         margin: 0px;
         margin-bottom: 50px;
         padding: 5px 5px;
@@ -100,8 +100,6 @@ function getNormalRedesignCss(){
       .mg_title span{
         padding-left: 30px;
       }
-
-
 
       @media (max-width: 1080px) {
 
@@ -119,21 +117,11 @@ function getNormalRedesignCss(){
           flex-wrap: wrap;
           justify-content: center;
          }
-         
-         #mg_portal_content > :nth-child(n+5){  
-          display: inline-block;
-          width: 100%;
-          margin: 0px;
-          margin-bottom: 50px;
-          padding: 5px 5px;
-         }
 
          #mg_portal_slideshow .flex-control-nav{
           width: 80vw;
         }
-
       }
-
   `
 
   return style
