@@ -21,7 +21,7 @@ async function main(){
     style.textContent = ""
   }
 	// console.log('localStorage', localStorage)
-	createStyleTag()
+	await createStyleTag()
 	injectCSS()
 }
 
@@ -36,31 +36,61 @@ browserAPI.runtime.onMessage.addListener(function(message, sender, sendResponse)
 
 //----------------------------------------------------------//
 
-// Wait 0.5 secondes before executing the program
-setTimeout(function() {
 
-	// chrome.storage.local.clear()
+async function getLocalValues() {
+	let tmp = []
 
-	// Search if datas exist then set it if don't exist
-	browserAPI.storage.local.get().then((result) => {
-		if (!result.enabled) {
-			browserAPI.storage.local.set({ "enabled": 0}).then(setItem, onError)
-			console.log('enabled data set')
-		}
+	try {
+		let result = await browserAPI.storage.local.get("enabled");
+		tmp.push(result.enabled);
+	} catch (error) {
+		tmp.push('Error')
+		console.log('Erreur lors de la récupération des données : ' + error);
+		return null;
+	}
 
-		if (!result.heavyDesign) {
-			browserAPI.storage.local.set({ "heavyDesign": 0}).then(setItem, onError)
-			console.log('heavyDesign data set')
-		}
+	try {
+		let result = await browserAPI.storage.local.get("heavyDesign");
+		tmp.push(result.heavyDesign);
+	} catch (error) {
+		tmp.push('Error')
+		console.log('Erreur lors de la récupération des données : ' + error);
+		return null;
+	}
 
-		if (!result.eventDesign) {
-			browserAPI.storage.local.set({ "eventDesign": 0}).then(setItem, onError)
-			console.log('eventDesign data set')
-		}
-	})
-	.catch((error) => {
-		console.error('Erreur lors de la récupération des données : ' + error);
-	});
+	try {
+		let result = await browserAPI.storage.local.get("eventDesign");
+		tmp.push(result.eventDesign);
+	} catch (error) {
+		tmp.push('Error')
+		console.log('Erreur lors de la récupération des données : ' + error);
+		return null;
+	}
 
-	main()
-}, 500);
+	return tmp
+}
+
+//----------------------------------------------------------//
+
+// Search if datas exist then set it if don't exist
+browserAPI.storage.local.get().then((result) => {
+	if (!result.enabled) {
+		browserAPI.storage.local.set({ "enabled": 0}).then(setItem, onError)
+		console.log('enabled data set')
+	}
+
+	if (!result.heavyDesign) {
+		browserAPI.storage.local.set({ "heavyDesign": 0}).then(setItem, onError)
+		console.log('heavyDesign data set')
+	}
+
+	if (!result.eventDesign) {
+		browserAPI.storage.local.set({ "eventDesign": 0}).then(setItem, onError)
+		console.log('eventDesign data set')
+	}
+})
+.catch((error) => {
+	console.error('Erreur lors de la récupération des données : ' + error);
+});
+
+main()

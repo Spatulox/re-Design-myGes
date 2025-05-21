@@ -3,17 +3,6 @@ async function injectCSS(){
   let style = null
   let count = 0
 
-  // Wait for the style tag
-  while (style == null && count < 100){
-
-    style = document.getElementById('customReworkedCSS')
-    // Wait one second before retyring to retrieve the style tag
-    if (style == null){
-      await new Promise(resolve => setTimeout(resolve, 1000));  
-    }
-    count ++
-  }
-
   // Retrieve value from storage.local
   let enabled
   let heavyDesign
@@ -30,6 +19,7 @@ async function injectCSS(){
     eventDesign = 0
   }
 
+  style = document.getElementById('customReworkedCSS')
   style.textContent = ""
   // Enable some customs design
 
