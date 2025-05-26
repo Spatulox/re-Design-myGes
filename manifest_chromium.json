@@ -25,7 +25,8 @@
         "js/reworkFunctions.js",
         "CSS/eventRedesign.js",
         "CSS/heavyRedesign.js",
-        "CSS/normalRedesign.js"
+        "CSS/normalRedesign.js",
+        "CSS/darkModeRedesign.js"
       ]
     }
   ],

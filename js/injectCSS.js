@@ -7,16 +7,19 @@ async function injectCSS(){
   let enabled
   let heavyDesign
   let eventDesign
+  let darkModeDesign
   let tmp = await getLocalValues()
   if (tmp != null){
   enabled = (tmp[0] != 'Error' ? tmp[0] : 0)
   heavyDesign = (tmp[1] != 'Error' ? tmp[1] : 0)
   eventDesign = (tmp[2] != 'Error' ? tmp[2] : 0)
+  darkModeDesign = (tmp[3] != 'Error' ? tmp[3] : 0)
   }
   else{
     enabled = 0
     heavyDesign = 0
     eventDesign = 0
+    darkModeDesign = 0
   }
 
   style = document.getElementById('customReworkedCSS')
@@ -300,6 +303,10 @@ async function injectCSS(){
       style.textContent += getHeavyRedesignCss()
     }
 
+  }
+
+  if (darkModeDesign == 1){
+    style.textContent += getDarkModeCss()
   }
 
 

@@ -15,6 +15,7 @@ button.addEventListener('click', event => {
       browserAPI.storage.local.set({ "enabled": 1})
       browserAPI.storage.local.set({ "heavyDesign": 1})
       browserAPI.storage.local.set({ "eventDesign": 1})
+      browserAPI.storage.local.set({ "darkModeDesign": 1})
       alert("Please refresh myges tab\nS'il vous plait, recharger l'onglet myges")
     } else {
     	console.log("Error when according right to extension")

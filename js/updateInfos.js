@@ -2,6 +2,7 @@ const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
 const normalDesign = document.getElementById('normalDesign')
 const heavyDesign = document.getElementById('heavyDesign')
 const eventDesign = document.getElementById('eventDesign')
+const darkModeDesign = document.getElementById('darkModeDesign')
 const clearCache = document.getElementById('clearCache')
 const popupMsg = document.getElementById('popupMsg')
 
@@ -37,6 +38,15 @@ async function getLocalValues() {
 		return null;
 	}
 
+	try {
+		let result = await browserAPI.storage.local.get("darkModeDesign");
+		tmp.push(result.darkModeDesign);
+	} catch (error) {
+		tmp.push('Error')
+		console.log('Erreur lors de la récupération des données : ' + error);
+		return null;
+	}
+
 	return tmp
 }
 
@@ -44,19 +54,19 @@ async function getLocalValues() {
 
 async function checkChecked(){
 
-	let enabled
-	let heavy
-	let event
+	let enabled, heavy, event, darkMode
 	let tmp = await getLocalValues()
 	if (tmp != null){
 		enabled = (tmp[0] != 'Error' ? tmp[0] : 0)
 		heavy = (tmp[1] != 'Error' ? tmp[1] : 0)
 		event = (tmp[2] != 'Error' ? tmp[2] : 0)
+		darkMode = (tmp[3] != 'Error' ? tmp[3] : 0)
 	}
 	else{
 		enabled = 0
 		heavy = 0
 		event = 0
+		darkMode = 0
 	}
 
 	console.log('enabled, heavy, event : ', tmp)
@@ -64,10 +74,13 @@ async function checkChecked(){
 	normalDesign.children[0].checked = false
 	heavyDesign.children[0].checked = false
 	eventDesign.children[0].checked = false
+	darkModeDesign.children[0].checked = false
 
 	normalDesign.classList.remove('active')
 	heavyDesign.classList.remove('active')
 	eventDesign.classList.remove('active')
+	darkModeDesign.classList.remove('active')
+
 
 	try{
 		if (enabled == '1'){
@@ -97,6 +110,16 @@ async function checkChecked(){
 	}
 	catch{
 		console.log('Error when activating eventDesign')
+	}
+
+	try{
+		if (darkMode == '1'){
+			darkModeDesign.children[0].checked = true
+			darkModeDesign.classList.add('active')
+		}
+	}
+	catch{
+		console.log('Error when activating darkModeDesign')
 	}
 
 }
@@ -237,6 +260,24 @@ eventDesign.addEventListener('click', async function() {
   }
 });
 
+// Listen for darkModeDesign checkbox
+darkModeDesign.addEventListener('click', async function() {
+  darkModeDesign.classList.toggle('active')
+  // console.log(this.children[0])
+  if (this.children[0].checked) {
+	// console.log('La case à cocher est cochée, décochage');
+	await browserAPI.storage.local.set({ "darkModeDesign": "0"})
+	this.children[0].checked = true
+  } else {
+	// console.log('La case à cocher est décochée, cochage');
+	await browserAPI.storage.local.set({ "darkModeDesign": "1"})
+	this.children[0].checked = false
+  }
+  await checkChecked()
+  sendMessageToUpdateCSS()
+}
+);
+
 // Listen for clear cache button
 clearCache.addEventListener('click', async function() {
 	await browserAPI.storage.local.clear()
@@ -244,6 +285,7 @@ clearCache.addEventListener('click', async function() {
 	await browserAPI.storage.local.set({ "enabled": "0"})
 	await browserAPI.storage.local.set({ "heavyDesign": "0"})
 	await browserAPI.storage.local.set({ "eventDesign": "0"})
+	await browserAPI.storage.local.set({ "darkModeDesign": "0"})
 	console.log('Cache reinitialized')
 	await checkChecked()
 	messagePopup('Cache reinitialized')

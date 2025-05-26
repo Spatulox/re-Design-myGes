@@ -67,6 +67,15 @@ async function getLocalValues() {
 		return null;
 	}
 
+	try {
+		let result = await browserAPI.storage.local.get("darkModeDesign");
+		tmp.push(result.darkModeDesign);
+	} catch (error) {
+		tmp.push('Error')
+		console.log('Erreur lors de la récupération des données : ' + error);
+		return null;
+	}
+
 	return tmp
 }
 
@@ -87,6 +96,10 @@ browserAPI.storage.local.get().then((result) => {
 	if (!result.eventDesign) {
 		browserAPI.storage.local.set({ "eventDesign": 0}).then(setItem, onError)
 		console.log('eventDesign data set')
+	}
+	if (!result.darkModeDesign) {
+		browserAPI.storage.local.set({ "darkModeDesign": 0}).then(setItem, onError)
+		console.log('darkModeDesign data set')
 	}
 })
 .catch((error) => {
