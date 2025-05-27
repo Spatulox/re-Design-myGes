@@ -69,7 +69,7 @@ async function checkChecked(){
 		darkMode = 0
 	}
 
-	console.log('enabled, heavy, event : ', tmp)
+	console.log('enabled, heavy, event, darkmode : ', tmp)
 
 	normalDesign.children[0].checked = false
 	heavyDesign.children[0].checked = false
