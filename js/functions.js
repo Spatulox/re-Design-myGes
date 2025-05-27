@@ -28,41 +28,6 @@ async function createStyleTag(customReworked = ''){
 
 //----------------------------------------------------------//
 
-async function getLocalValues() {
-	let tmp = []
-
-	try {
-		let result = await browserAPI.storage.local.get("enabled");
-		tmp.push(result.enabled);
-	} catch (error) {
-		tmp.push('Error')
-		console.log('Erreur lors de la récupération des données : ' + error);
-		return null;
-	}
-
-	try {
-		let result = await browserAPI.storage.local.get("heavyDesign");
-		tmp.push(result.heavyDesign);
-	} catch (error) {
-		tmp.push('Error')
-		console.log('Erreur lors de la récupération des données : ' + error);
-		return null;
-	}
-
-	try {
-		let result = await browserAPI.storage.local.get("eventDesign");
-		tmp.push(result.eventDesign);
-	} catch (error) {
-		tmp.push('Error')
-		console.log('Erreur lors de la récupération des données : ' + error);
-		return null;
-	}
-
-	return tmp
-}
-
-//----------------------------------------------------------//
-
 function getNewChineseYears(annee){
 	let y = annee;
 	let a = y % 19;

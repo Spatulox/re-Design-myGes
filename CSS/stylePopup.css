@@ -1,6 +1,7 @@
 body{
 	margin: 0px;
 	width: 300px;
+	font-family: system-ui;
 }
 
 main ul li{
@@ -20,7 +21,8 @@ main ul li p{
 /*Classes*/
 
 .blue{
-	background-color: #217bb1 ;
+	background-color: AccentColor ;
+	color: AccentColorText;
 }
 
 .block{
@@ -133,7 +135,8 @@ main ul li p{
 }
 
 .toggle.active{
-  background-color: #217bb1;;
+  background-color: AccentColor;
+  color: AccentColorText;
 }
 
 .toggle.active .toggle-button{

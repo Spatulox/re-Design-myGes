@@ -3,33 +3,26 @@ async function injectCSS(){
   let style = null
   let count = 0
 
-  // Wait for the style tag
-  while (style == null && count < 100){
-
-    style = document.getElementById('customReworkedCSS')
-    // Wait one second before retyring to retrieve the style tag
-    if (style == null){
-      await new Promise(resolve => setTimeout(resolve, 1000));  
-    }
-    count ++
-  }
-
   // Retrieve value from storage.local
   let enabled
   let heavyDesign
   let eventDesign
+  let darkModeDesign
   let tmp = await getLocalValues()
   if (tmp != null){
   enabled = (tmp[0] != 'Error' ? tmp[0] : 0)
   heavyDesign = (tmp[1] != 'Error' ? tmp[1] : 0)
   eventDesign = (tmp[2] != 'Error' ? tmp[2] : 0)
+  darkModeDesign = (tmp[3] != 'Error' ? tmp[3] : 0)
   }
   else{
     enabled = 0
     heavyDesign = 0
     eventDesign = 0
+    darkModeDesign = 0
   }
 
+  style = document.getElementById('customReworkedCSS')
   style.textContent = ""
   // Enable some customs design
 
@@ -310,6 +303,10 @@ async function injectCSS(){
       style.textContent += getHeavyRedesignCss()
     }
 
+  }
+
+  if (darkModeDesign == 1){
+    style.textContent += getDarkModeCss()
   }
 
 
