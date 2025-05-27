@@ -331,9 +331,11 @@ function getHeavyRedesignCss(){
   style += `
     .mg_container_group{
         background-color: ${gecko ? "Canvas" : "#181a1b"} !important;
+        color: ${gecko ? "CanvasText" : "#f5f6fa"} !important;
       }
     .blue.mg_widget_full .mg_title, .mg_title, [role="row"]> th, .mg_home_title{
       background-color: ${gecko ? "AccentColor" : "#2563eb"} !important;
+      color:  ${gecko ? "AccentColorText" : "#ffffff"} !important;
     }
   `
 
