@@ -306,7 +306,6 @@ function getHeavyRedesignCss(){
     `
   
   let gecko = (typeof browser !== 'undefined');
-  console.log(gecko)
 
   if(gecko){
     // Gecko
