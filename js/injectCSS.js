@@ -65,7 +65,6 @@ async function injectCSS(){
     const personalLi = document.querySelectorAll('#mg_userinfo_panel li');
     const mg_partner = document.getElementsByClassName("mg_partner")
     const imgDeconnectionParametre = document.querySelectorAll("#mg_userinfo_panel li > img")[0]
-    const actionPropositionDialog_modal = document.getElementById('actionPropositionDialog_modal')
 
     // Sélectionner les div à déplacer
     const div1 = document.getElementsByClassName('mg_hideOnPrint mg_portal_partners')[0];
@@ -78,10 +77,6 @@ async function injectCSS(){
     // Déplacer les div vers les nouveaux parents
     parent3.appendChild(div1);
     parent3.appendChild(div2);
-
-    if(actionPropositionDialog_modal){
-      actionPropositionDialog_modal.remove()
-    }
 
     const brElement = element.querySelector('br');
     // Remove the br next to our name
