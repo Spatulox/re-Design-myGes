@@ -208,7 +208,7 @@ function getHeavyRedesignCss(){
       /*left: 20vw*/
     }
 
-    #actionPositionDialog_modal, actionPropositionDialog_modal{
+    #actionPositionDialog_modal, #actionPropositionDialog_modal{
       display: none;
       pointer-events: none;
     }
@@ -217,8 +217,7 @@ function getHeavyRedesignCss(){
     /* BODY */
 
     #mg_portal_body{
-      /*width: 80vw;/*See end of file*/
-      width: 79vw;
+      /*For the witdh, see at the end of the file plz*/
       transform: translateX(20vw);
       overflow: hidden;
     }
@@ -304,26 +303,27 @@ function getHeavyRedesignCss(){
       left: 80px;
       opacity: 0.2;
     }
-    
-    /* Gecko */
-    @-moz-document url-prefix() {
-      #mg_footer {
-        width: 80vw;
-      }
-      #mg_portal_body{
-        width: 80vw;
-      }
-    }
-    /* Chromium */
-    @supports (-webkit-appearance:none) {
-      #mg_footer {
-        width: 79vw;
-      }
-      #mg_portal_body{
-        width: 79vw;
-      }
-    }
-
     `
+  if(browser){
+    // Gecko
+    style += `
+      #mg_footer {
+        width: 80vw;
+      }
+      #mg_portal_body{
+        width: 80vw;
+      }
+    `
+  } else {
+    style += `
+      #mg_footer {
+        width: 79vw;
+      }
+      #mg_portal_body{
+        width: 79vw;
+      }
+    `
+  }
+
   return style
 }
