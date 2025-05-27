@@ -304,7 +304,11 @@ function getHeavyRedesignCss(){
       opacity: 0.2;
     }
     `
-  if(browser){
+  
+  let gecko = (typeof browser !== 'undefined');
+  console.log(gecko)
+
+  if(gecko){
     // Gecko
     style += `
       #mg_footer {
@@ -324,6 +328,17 @@ function getHeavyRedesignCss(){
       }
     `
   }
+
+  style += `
+    .mg_container_group{
+        background-color: ${gecko ? "Canvas" : "#181a1b"} !important;
+      }
+    .blue.mg_widget_full .mg_title, .mg_title, [role="row"]> th, .mg_home_title{
+      background-color: ${gecko ? "AccentColor" : "#2563eb"} !important;
+    }
+  `
+
+      
 
   return style
 }
